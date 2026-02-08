@@ -8,16 +8,20 @@ from PySide6.QtWidgets import (
 )
 
 from PySide6.QtCore import Qt, Signal
+from .signals import AppSignals
+
+import time
 
 
 class LoginTab(QWidget):
-    UsernameSignal = Signal(str)
-
     def __init__(self, stack):
         super().__init__(stack)
         self.stack = stack
         layout = QVBoxLayout(self)
+        layout.setSpacing(40)
+        layout.addStretch()
         layout.addWidget(self._username_card())
+        layout.addStretch()
 
     def _username_card(self):
         widget = QWidget()
@@ -28,6 +32,8 @@ class LoginTab(QWidget):
         pseudo_layout.addWidget(label)
 
         self.username = QLineEdit()
+
+        pseudo_layout.setSpacing(30)
         pseudo_layout.addWidget(self.username, alignment=Qt.AlignCenter)
 
         btn_box = QHBoxLayout()
@@ -46,14 +52,9 @@ class LoginTab(QWidget):
 
     def on_btnValidate_clicked(self):
         username = self.username.text()
-
-        self.username.clear()
+        print(username)
+        AppSignals.instance().UsernameSignal.emit(username)
         self.stack.setCurrentIndex(1)
-
-        self.UsernameSignal.emit(username)
 
     def on_btnCancel_clicked(self):
         self.username.clear()
-
-
-# # problème pourquoi les widgets sont comme ça ??
