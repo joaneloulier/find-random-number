@@ -1,3 +1,12 @@
-QMainWindow{background-image: url("gui/images/background-video-game.png");
-setOpacity: 0.5;}
+QMainWindow{background-image: url("gui/images/background-video-game.png");}
+QLabel{font-size: 20px; 
+background-color: transparent;}
+QLineEdit{
+    width: 300px;
+    height: 36px;
+}
+QPushButton{
+    width: 46px;
+    height: 36px;
+}
 
