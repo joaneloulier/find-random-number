@@ -6,10 +6,9 @@ from PySide6.QtCore import QObject, Signal
 from PySide6.QtGui import QPixmap
 
 
-
 class AppSignals(QObject):
-    
-
+    UsernameSignal = Signal(str)
+    GuessSignal = Signal(str)
 
     _instance = None
 
@@ -18,4 +17,6 @@ class AppSignals(QObject):
         if cls._instance is None:
             cls._instance = cls()
         return cls._instance
- 
+
+
+app_signals = AppSignals.instance()
