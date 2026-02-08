@@ -6,7 +6,7 @@ QLineEdit{
     height: 36px;
 }
 QPushButton{
-    width: 46px;
+    width: 115px;
     height: 36px;
 }
 

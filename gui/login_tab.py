@@ -36,15 +36,18 @@ class LoginTab(QWidget):
         pseudo_layout.setSpacing(30)
         pseudo_layout.addWidget(self.username, alignment=Qt.AlignCenter)
 
-        btn_box = QHBoxLayout()
-
         btnCancel = QPushButton("Annuler")
         btnCancel.clicked.connect(self.on_btnCancel_clicked)
-        btn_box.addWidget(btnCancel)
 
         btnValidate = QPushButton("Valider")
         btnValidate.clicked.connect(self.on_btnValidate_clicked)
+
+        btn_box = QHBoxLayout()
+        btn_box.addStretch()
+        btn_box.addWidget(btnCancel)
+        btn_box.addSpacing(20)
         btn_box.addWidget(btnValidate)
+        btn_box.addStretch()
 
         pseudo_layout.addLayout(btn_box)
 
