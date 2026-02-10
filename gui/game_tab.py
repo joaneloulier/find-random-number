@@ -56,13 +56,13 @@ class GameTab(QWidget):
 
         self.guess = QLineEdit()
         game_layout.addWidget(self.guess, alignment=Qt.AlignCenter)
+        self.guess.returnPressed.connect(self.on_btnValidate_clicked)
 
         game_layout.setSpacing(30)
         btnCancel = QPushButton("Annuler")
         btnCancel.clicked.connect(self.on_btnCancel_clicked)
 
         btnValidate = QPushButton("Valider")
-        btnValidate.setDefault(True)
         btnValidate.clicked.connect(self.on_btnValidate_clicked)
 
         btn_box = QHBoxLayout()

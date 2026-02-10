@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
 
 from .game_tab import GameTab
 from .login_tab import LoginTab
+from .results_tab import ResultsTab
 from PySide6.QtCore import Qt
 
 from .workers import Worker
@@ -44,6 +45,8 @@ class MainWindow(QMainWindow):
 
         self.login_tab = LoginTab(self.stack)
         self.game_tab = GameTab(self.stack)
+        self.results_tab = ResultsTab(self.stack)
 
         self.stack.addWidget(self.login_tab)
         self.stack.addWidget(self.game_tab)
+        self.stack.addWidget(self.results_tab)

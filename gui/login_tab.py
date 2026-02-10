@@ -40,8 +40,8 @@ class LoginTab(QWidget):
         btnCancel.clicked.connect(self.on_btnCancel_clicked)
 
         btnValidate = QPushButton("Valider")
-        btnValidate.setDefault(True)
         btnValidate.clicked.connect(self.on_btnValidate_clicked)
+        self.username.returnPressed.connect(self.on_btnValidate_clicked)
 
         btn_box = QHBoxLayout()
         btn_box.addStretch()
