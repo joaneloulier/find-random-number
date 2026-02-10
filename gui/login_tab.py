@@ -43,12 +43,16 @@ class LoginTab(QWidget):
         btnValidate.clicked.connect(self.on_btnValidate_clicked)
         self.username.returnPressed.connect(self.on_btnValidate_clicked)
 
+        # btnGoToResults = QPushButton("Tab Results")
+        # btnGoToResults.clicked.connect(self._tab_results)
+
         btn_box = QHBoxLayout()
         btn_box.addStretch()
         btn_box.addWidget(btnCancel)
         btn_box.addSpacing(20)
         btn_box.addWidget(btnValidate)
         btn_box.addStretch()
+        # btn_box.addWidget(btnGoToResults)
 
         pseudo_layout.addLayout(btn_box)
 
@@ -62,3 +66,6 @@ class LoginTab(QWidget):
 
     def on_btnCancel_clicked(self):
         self.username.clear()
+
+    def _tab_results(self):
+        self.stack.setCurrentIndex(2)

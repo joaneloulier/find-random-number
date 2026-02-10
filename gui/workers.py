@@ -26,7 +26,7 @@ class Worker(QWidget):
     def on_guess_received(self, guess: int):
         print("guess received")
         if backend.correct_answer(self.solution, guess):
-            pass  # TODO : on va à l'onglet suivant
+            AppSignals.instance().SolutionFoundSignal.emit()
         else:
             if backend.guess_lower_than_sol(self.solution, guess):
                 AppSignals.instance().ComparisonGuessSol.emit("lower")

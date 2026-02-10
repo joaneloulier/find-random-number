@@ -9,7 +9,10 @@ from PySide6.QtGui import QPixmap
 class AppSignals(QObject):
     UsernameSignal = Signal(str)
     GuessSignal = Signal(int)
-    ComparisonGuessSol = Signal(str)
+    ComparisonGuessSol = Signal(
+        str
+    )  # lower si le guess est plus petit que la sol, higher sinon.
+    SolutionFoundSignal = Signal()
 
     _instance = None
 

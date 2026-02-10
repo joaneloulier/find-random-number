@@ -18,6 +18,7 @@ class GameTab(QWidget):
         super().__init__(stack)
         AppSignals.instance().UsernameSignal.connect(self.get_username)
         AppSignals.instance().ComparisonGuessSol.connect(self.show_result)
+        AppSignals.instance().SolutionFoundSignal.connect(self._go_to_next_tab)
         self.stack = stack
         layout = QVBoxLayout(self)
         layout.setSpacing(40)
@@ -89,6 +90,9 @@ class GameTab(QWidget):
 
     def on_btnCancel_clicked(self):
         self.guess.clear()
+
+    def _go_to_next_tab(self):
+        self.stack.setCurrentIndex(2)
 
 
 """L'idée ici c'est de rentrer un nombre, puis d'appuyer
