@@ -17,6 +17,7 @@ class GameTab(QWidget):
     def __init__(self, stack):
         super().__init__(stack)
         AppSignals.instance().UsernameSignal.connect(self.get_username)
+        AppSignals.instance().ComparisonGuessSol.connect(self.show_result)
         self.stack = stack
         layout = QVBoxLayout(self)
         layout.setSpacing(40)
@@ -30,6 +31,16 @@ class GameTab(QWidget):
             f"Bonjour {self.username} ! Devine un nombre entre 1 et 100."
         )
 
+    def show_result(self, comparison_signal: str):
+        if comparison_signal == "lower":
+            self.results_label.setText(
+                "MAUVAISE REPONSE : Le nombre cherché est plus grand."
+            )
+        elif comparison_signal == "higher":
+            self.results_label.setText(
+                "MAUVAISE REPONSE : Le nombre cherché est plus petit."
+            )
+
     def _game_card(self):
         widget = QWidget()
         game_layout = QVBoxLayout(widget)
@@ -38,6 +49,10 @@ class GameTab(QWidget):
         self.label = QLabel("En attente du joueur...")
         self.label.setAlignment(Qt.AlignCenter)
         game_layout.addWidget(self.label)
+
+        self.results_label = QLabel(" ")
+        self.results_label.setAlignment(Qt.AlignCenter)
+        game_layout.addWidget(self.results_label)
 
         self.guess = QLineEdit()
         game_layout.addWidget(self.guess, alignment=Qt.AlignCenter)
@@ -63,7 +78,8 @@ class GameTab(QWidget):
     def on_btnValidate_clicked(self):
         try:
             guess = int(self.guess.text())
-            self.guess.clear()
+            print(guess)
+            AppSignals.instance().GuessSignal.emit(guess)
 
         except Exception:
             self.guess.clear()
@@ -82,3 +98,17 @@ le tester. """
 # ou peut-être que je réécris ce self.username, remarque je ne pense pas car le pr
 
 # résolution du problème : dès que le signal arrive on change le label = dans get_username
+
+
+"""
+Principe :
+- dès que l'utilisateur appuie sur valider, et si ça peut être un entier,
+- alors, on l'envoie en signal au worker. Qui va pouvoir écrire si oui ou non
+    c'est gagné.
+
+Je pense qu'on va l'intégrer dans le truc, juste en dessous avec potentiellement
+une icône.
+"""
+
+# j'arrête pour aujourd'hui. Demain je regarde comment les
+# workers fonctionnent.

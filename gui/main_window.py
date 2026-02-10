@@ -10,15 +10,18 @@ from PySide6.QtWidgets import (
 )
 
 
-
 from .game_tab import GameTab
 from .login_tab import LoginTab
 from PySide6.QtCore import Qt
+
+from .workers import Worker
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        worker = Worker()
+        print(worker)  # je l'instancie pour qu'il existe
         self.setWindowTitle("Trouve le nombre")
         self.resize(640, 436)
 
@@ -45,5 +48,3 @@ class MainWindow(QMainWindow):
 
         self.stack.addWidget(self.login_tab)
         self.stack.addWidget(self.game_tab)
-
-
