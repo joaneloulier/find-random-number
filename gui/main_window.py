@@ -20,8 +20,7 @@ from .workers import Worker
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        worker = Worker()
-        print(worker)  # je l'instancie pour qu'il existe
+        self.worker = Worker()
         self.setWindowTitle("Trouve le nombre")
         self.resize(640, 436)
 
