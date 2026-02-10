@@ -80,6 +80,7 @@ class GameTab(QWidget):
             guess = int(self.guess.text())
             print(guess)
             AppSignals.instance().GuessSignal.emit(guess)
+            self.guess.clear()
 
         except Exception:
             self.guess.clear()
@@ -109,6 +110,3 @@ Principe :
 Je pense qu'on va l'intégrer dans le truc, juste en dessous avec potentiellement
 une icône.
 """
-
-# j'arrête pour aujourd'hui. Demain je regarde comment les
-# workers fonctionnent.
