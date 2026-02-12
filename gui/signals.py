@@ -3,7 +3,6 @@ Centralisation des signaux pour la communication entre frontend et backend.
 """
 
 from PySide6.QtCore import QObject, Signal
-from PySide6.QtGui import QPixmap
 
 
 class AppSignals(QObject):

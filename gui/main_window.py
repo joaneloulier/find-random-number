@@ -2,10 +2,6 @@ from PySide6.QtWidgets import (
     QMainWindow,
     QWidget,
     QVBoxLayout,
-    QLabel,
-    QLineEdit,
-    QHBoxLayout,
-    QPushButton,
     QStackedWidget,
 )
 
@@ -13,7 +9,6 @@ from PySide6.QtWidgets import (
 from .game_tab import GameTab
 from .login_tab import LoginTab
 from .results_tab import ResultsTab
-from PySide6.QtCore import Qt
 
 from .workers import Worker
 

@@ -25,9 +25,7 @@ class Worker(QWidget):
         self.compteur = 0
 
     def on_guess_received(self, guess: int):
-        print("guess received")
         self.compteur += 1
-        print(self.compteur)
         if backend.correct_answer(self.solution, guess):
             AppSignals.instance().SolutionFoundSignal.emit()
             AppSignals.instance().NumberOfTriesSignal.emit(self.compteur)
