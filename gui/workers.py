@@ -21,6 +21,15 @@ class Worker(QWidget):
     def __init__(self):
         super().__init__()
         AppSignals.instance().GuessSignal.connect(self.on_guess_received)
+        AppSignals.instance().ReplaySignal.connect(self.generate_number_from_backend)
+        self.generate_number_from_backend()
+
+    def generate_number_from_backend(self):
+        """Function used when the worker is initialized, ie the main_window
+        initialized and when the user clicks on the button Rejouer from the
+        ResultsTab.
+        Sets the counter back to 0 and generates a new solution.
+        """
         self.solution = backend.generate_number()
         self.compteur = 0
 

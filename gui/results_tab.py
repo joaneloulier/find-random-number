@@ -38,4 +38,5 @@ class ResultsTab(QWidget):
         self.label_tries.setText(f"Il vous aura fallu {number_of_tries} tentatives.")
 
     def go_to_first_tab(self):
+        AppSignals.instance().ReplaySignal.emit()
         self.stack.setCurrentIndex(0)

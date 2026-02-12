@@ -13,6 +13,7 @@ class AppSignals(QObject):
     )  # lower si le guess est plus petit que la sol, higher sinon.
     SolutionFoundSignal = Signal()
     NumberOfTriesSignal = Signal(int)
+    ReplaySignal = Signal()
 
     _instance = None
 
