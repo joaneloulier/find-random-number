@@ -22,11 +22,15 @@ class Worker(QWidget):
         super().__init__()
         AppSignals.instance().GuessSignal.connect(self.on_guess_received)
         self.solution = backend.generate_number()
+        self.compteur = 0
 
     def on_guess_received(self, guess: int):
         print("guess received")
+        self.compteur += 1
+        print(self.compteur)
         if backend.correct_answer(self.solution, guess):
             AppSignals.instance().SolutionFoundSignal.emit()
+            AppSignals.instance().NumberOfTriesSignal.emit(self.compteur)
         else:
             if backend.guess_lower_than_sol(self.solution, guess):
                 AppSignals.instance().ComparisonGuessSol.emit("lower")
