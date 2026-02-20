@@ -1,7 +1,23 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "projet-random-number"
+name = "trouve-le-nombre"
 version = "0.1.0"
-description = "Add your description here"
+description = "Jeu de devinette : trouve un nombre aléatoire entre 1 et 100"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "PySide6>=6.5",
+]
+
+[project.scripts]
+trouve-le-nombre = "trouve_le_nombre.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+trouve_le_nombre = ["gui/styles.qss", "gui/images/*"]
