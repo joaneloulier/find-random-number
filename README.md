@@ -8,7 +8,7 @@ The goal of this game is to guess a number between 1 and 100, a random number ge
 
 ```bash
 # Clone the repo
-git clone https://github.com/ton-username/trouve-le-nombre.git
+git clone https://github.com/joaneloulier/find-random-number.git
 cd trouve-le-nombre
 
 # Create a virtual environment
