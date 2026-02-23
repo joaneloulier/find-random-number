@@ -26,7 +26,7 @@ After installing, you can launch the game in two ways:
 
 ```bash
 # Via the installed command
-trouve-le-nombre
+find-random-number
 
 # Or via the Python module
 python -m trouve_le_nombre
